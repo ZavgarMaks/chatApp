@@ -1,0 +1,52 @@
+* { margin: 0}
+
+body {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.container {
+
+}
+
+.navbar {
+    height: 60px;
+    background-color: #0070ba;
+}
+
+.msg-window {
+    background-color: aliceblue;
+    min-height: 600px;
+    height: auto;
+}
+
+form {
+
+}
+
+input {
+    height: 30px;
+    width: 80%;
+}
+
+button {
+        background-color: #0070ba;
+    color: #fff;
+    width: 19%;
+    height: 36px;
+    border: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    width: 80%;
+    margin: 0 auto;
+}
+
+ul li {
+    padding: 10px;
+}
+.msg-window li:nth-child(odd) {
+    background: #fff;
+}

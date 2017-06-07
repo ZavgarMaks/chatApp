@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="../assets/stylesheets/main.css">
+
+<div class="container" >
+  <div class="navbar"><a href="#!/register">Sign up</a><a href="#!/login">Log In</a></div>
+  <div class="msg-window">
+    <ul class="messages" >
+        <li ng-repeat="msg in messages"><div>{{msg.text}}</div></li>
+    </ul>
+  </div>
+  <form action="">
+    <input id="m" autocomplete="off" placeholder="Type here..." ng-model="textMsg"/>
+    <button type="submit" ng-click="sendMessages()">Send</button>
+  </form>
+</div>

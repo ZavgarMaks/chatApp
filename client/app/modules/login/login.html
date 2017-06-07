@@ -1,0 +1,20 @@
+<link href="../assets/stylesheets/login.css" rel="stylesheet">
+
+<form class="form" name="form">
+    <header>
+        Welcome To Our Chat!
+    </header>
+    <div class="input-group">
+        <input type="text" name="userName" ng-model="username" class="form-control" placeholder="Username" required>
+    </div>
+
+    <div class="input-group">
+        <input type="password" name="password" placeholder="Password" ng-model="password" class="form-control" required>
+    </div>
+
+    <button ng-click="Authentication()" type="submit">
+        Log In
+    </button>
+    <hr>
+    <a href="#!/register" class="btn-signup"> Sign Up </a>
+</form>
