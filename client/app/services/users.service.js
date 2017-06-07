@@ -19,9 +19,9 @@
 				username : username });
 		}
 
-		function Authentication (email, password) {
+		function Authentication (username, password) {
 			return $http.post('/api/users', {
-				email    : email,
+				username : username,
 				password : password
 			});
 		}

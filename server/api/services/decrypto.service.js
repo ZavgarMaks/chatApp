@@ -17,12 +17,9 @@
 		};
 	};
 
-	var saltHashPassword = function (userpassword) {
-		var salt = genRandomString(8);
+	var hashPassword = function (userpassword, salt) {
 		var passwordData = sha1(userpassword, salt);
 		return passwordData;
 	};
-
-
-	module.exports = saltHashPassword;
+	module.exports = hashPassword;
 })();

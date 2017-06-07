@@ -2,10 +2,12 @@
 	angular
 		.module('chatApp')
 		.controller('mainController', mainController);
-	mainController.$inject = [ '$scope', '$http', 'Messages' ];
+	mainController.$inject = [ '$scope', '$cookies', '$http', 'Messages' ];
 
-	function mainController ($scope, $http, Messages) {
+	function mainController ($scope, $cookies, $http, Messages) {
 		$scope.textMsg = '';
+
+		getToken();
 
 		Messages.getMessage()
 			.then(function (response) {
@@ -30,16 +32,9 @@
 
 			// angular.element(document.querySelector('.messages')).append(angular.element('<li>' + textMsg + '</li>'));
 		});
+
+		function getToken () {
+			$cookies.get('myToken');
+		}
 	}
 })();
-
-// (function () {
-// 	angular.module('chatApp')
-// 		.controller('test', test);
-
-// 	test.$inject = [ '$scope' ];
-// 	function test ($scope) {
-// 		$scope.name = 'test';
-// 		console.log('test')
-// 	}
-// })();

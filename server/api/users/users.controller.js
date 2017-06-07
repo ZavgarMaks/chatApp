@@ -2,21 +2,21 @@ var User = require('./users.model');
 var express = require('express');
 var expressJWT = require('express-jwt');
 var jwt = require('jsonwebtoken');
-var Cookie = require('cookie-storage');
 var saltHashPassword = require('../services/crypto.service.js');
+var hashPassword = require('../services/decrypto.service.js');
 var app = express();
-var cookieStorage = new Cookie();
 
 app.use(expressJWT({ secret: 'london is red' }).unless({ path: [ '/api/users' ] }));
 
 module.exports = function (route) {
 	route.put('/api/users', function (req, res) {
+		var passwordData = saltHashPassword(req.body.password);
 		User.create({
 			name     : req.body.name,
 			email    : req.body.email,
 			username : req.body.username,
-			password : saltHashPassword(req.body.password).passwordHash,
-			salt     : saltHashPassword(req.body.password).salt
+			password : passwordData.passwordHash,
+			salt     : passwordData.salt
 		}, function (err, user) {
 			if (err) {
 				res.send(err);
@@ -30,10 +30,12 @@ module.exports = function (route) {
 			if (err) {
 				res.send(err);
 			}
-			if (user.password !== req.body.password) {
+			var encryptPass = hashPassword(req.body.password, user.salt).passwordHash;
+			if (user.password !== encryptPass) {
 				res.status(401).send('Invalid Password');
 			} else {
-				var myToken = jwt.sign({ username: req.body.username }, 'london is red');
+				var myToken = jwt.sign({ _id: user._id }, 'london is red');
+				console.log(myToken);
 				res.status(200).json(myToken);
 			}
 		});

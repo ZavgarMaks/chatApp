@@ -1,5 +1,5 @@
 (function () {
-	angular.module('chatApp', [ 'ngRoute' ])
+	angular.module('chatApp', [ 'ngRoute', 'ngCookies' ])
 		.config(routes);
 
 	routes.$inject = [ '$routeProvider' ];
