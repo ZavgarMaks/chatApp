@@ -1,6 +1,6 @@
-form {
-    width: 450;
-    margin: 50px auto;
+body {
+    width: 450px;
+    margin: 13% auto;
 }
 
 header {
@@ -23,7 +23,6 @@ header {
 .form input {
     height: 44px;
     width: 100%;
-    padding: 0 10px;
     border: 1px solid #9da3a6;
     border-radius: 4px;
 }
@@ -50,4 +49,9 @@ header {
     border-radius: 4px;
     padding-top: 11px;
     font-weight: bold;
+}
+.logo {
+    height: 40px;
+    width: 60px;
+    background-image: url(/assets/images/logo.png);
 }

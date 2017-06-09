@@ -1,12 +1,8 @@
 * { margin: 0}
 
 body {
-    width: 70%;
+    width: 40%;
     margin: 0 auto;
-}
-
-.container {
-
 }
 
 .navbar {
@@ -14,33 +10,80 @@ body {
     background-color: #0070ba;
 }
 
+.greet {
+    display: inline-block;
+    color: #fff;
+    font-size: 25px;
+    padding: 12px;
+    margin: 3px;
+}
+
+.logout {
+    float: right;
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 12px;
+    border: 1px solid;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+.logo {
+    height: 40px;
+    width: 60px;
+    background-image: url(../images/logo.png);
+}
+
+.rooms {
+    border: 1px solid #0070ba;
+    height: 70px;
+}
+
+.title-rooms {
+    margin: 10px;
+}
+.room {
+    background-color: aliceblue;
+    padding: 2px 10px;
+    margin: 0 5px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: #000;
+    border: 1px solid #0070ba;
+}
+
 .msg-window {
     background-color: aliceblue;
     min-height: 600px;
     height: auto;
+    border: 1px solid #0070ba;
 }
 
 form {
-
+    border: 1px solid #0070ba;
 }
 
 input {
     height: 30px;
     width: 80%;
+    border: 0;
+    padding: 0
 }
 
-button {
-        background-color: #0070ba;
+.sendBtn {
+    background-color: #0070ba;
     color: #fff;
     width: 19%;
     height: 36px;
     border: 0;
+    padding: 0;
 }
 
 ul {
     list-style: none;
     padding: 0;
-    width: 80%;
+    width: 80angular.element(document.querySelector(".NightGamer")).css("color", "green");%;
     margin: 0 auto;
 }
 
@@ -49,4 +92,22 @@ ul li {
 }
 .msg-window li:nth-child(odd) {
     background: #fff;
+}
+
+.msgAuthor {
+    color: #0070ba;
+    font-weight: bold;
+}
+
+.msgText {
+    display: inline;
+}
+
+.msgDate {
+    color: #0070ba;
+    float: right;
+
+}
+.typing {
+    display: none;
 }

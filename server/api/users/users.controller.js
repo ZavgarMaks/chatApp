@@ -9,6 +9,21 @@ var app = express();
 app.use(expressJWT({ secret: 'london is red' }).unless({ path: [ '/api/users' ] }));
 
 module.exports = function (route) {
+	route.get('/api/users/:token', function (req, res) {
+		jwt.verify(req.params.token, 'london is red', function (err, decoded) {
+			if (err) {
+				res.send('err');
+			} else {
+				User.findOne({ _id: decoded._id }, function (err, user) {
+					var userInfo = { name     : user.name,
+						email    : user.email,
+						username : user.username,
+						_id      : user._id };
+					res.send(userInfo);
+				});
+			}
+		});
+	});
 	route.put('/api/users', function (req, res) {
 		var passwordData = saltHashPassword(req.body.password);
 		User.create({
@@ -34,7 +49,7 @@ module.exports = function (route) {
 			if (user.password !== encryptPass) {
 				res.status(401).send('Invalid Password');
 			} else {
-				var myToken = jwt.sign({ _id: user._id }, 'london is red');
+				var myToken = jwt.sign({ _id: user._id }, 'london is red', { expiresIn: '1h' });
 				console.log(myToken);
 				res.status(200).json(myToken);
 			}

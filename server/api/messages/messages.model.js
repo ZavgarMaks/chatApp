@@ -4,7 +4,8 @@ var messageSchema = mongoose.Schema({
 	text    : String,
 	author  : String,
 	creator : String,
-	date    : String
+	date    : String,
+	room   	: String
 });
 
 var Message = mongoose.model('Message', messageSchema);

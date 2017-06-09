@@ -9,9 +9,11 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
 
+module.exports = {
+	io : io
+};
 
 mongoose.connect('mongodb://test:test@ds139781.mlab.com:39781/messages');
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,23 +27,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
 
-
-
-
 // app.get('/register', function (req, res) {
 // 	res.sendFile(__dirname + '/client/app/modules/register/register.html');
 // });
 
-io.on('connection', function (socket) {
-	socket.on('chat message', function (msg) {
-		io.emit('chat message', msg);
-	});
-});
-
 require('./server/api/messages/messages.controller.js')(app);
 require('./server/api/users/users.controller.js')(app);
 
-
+// io.on('connection', function (socket) {
+// 	socket.on('chat message', function (msg) {
+// 		io.emit('chat message', msg);
+// 	});
+// });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

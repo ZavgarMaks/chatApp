@@ -12,7 +12,7 @@
 					.then(function (response) {
 						$cookies.put('myToken', response.data);
 						console.log($cookies.get('myToken'));
-						//$location.path('/');
+						$location.path('/');
 					});
 				}
 			}

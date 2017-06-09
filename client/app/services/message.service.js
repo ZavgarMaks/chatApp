@@ -11,12 +11,17 @@
 
 		return service;
 
-		function getMessage () {
-			return $http.get('/api/messages');
+		function getMessage (room) {
+			return $http.get('/api/messages/' + room);
 		}
 
-		function createMessage (textMsg) {
-			return $http.post('/api/messages', { text: textMsg });
+		function createMessage (textMsg, author, date, currentRoom) {
+			return $http.post('/api/messages/', {
+				text   : textMsg,
+				author : author,
+				date   : date,
+				room   : currentRoom
+			});
 		}
 	}
 })();

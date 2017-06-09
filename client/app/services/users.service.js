@@ -6,7 +6,8 @@
 	function Users ($http) {
 		var service = {
 			createUser,
-			Authentication
+			Authentication,
+			getUser
 		};
 
 		return service;
@@ -24,6 +25,10 @@
 				username : username,
 				password : password
 			});
+		}
+
+		function getUser (token) {
+			return $http.get('/api/users/' + token);
 		}
 	}
 })();

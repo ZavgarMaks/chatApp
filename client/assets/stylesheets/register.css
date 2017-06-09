@@ -14,6 +14,11 @@ header {
     display: block;
     margin: 0 0 10px;
 }
+body {
+    width: 450px;
+    margin: 13% auto;
+    
+}
 
 .input-group {
     display: block;
@@ -23,7 +28,6 @@ header {
 .form input {
     height: 44px;
     width: 100%;
-    padding: 0 10px;
     border: 1px solid #9da3a6;
     border-radius: 4px;
 }
