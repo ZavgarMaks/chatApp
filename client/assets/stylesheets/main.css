@@ -1,7 +1,7 @@
 * { margin: 0}
 
 body {
-    width: 40%;
+    width: 416px;
     margin: 0 auto;
 }
 
@@ -43,12 +43,12 @@ body {
 .title-rooms {
     margin: 10px;
 }
-.room {
+.rooms button {
     background-color: aliceblue;
     padding: 2px 10px;
     margin: 0 5px;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 3px;
     color: #000;
     border: 1px solid #0070ba;
 }
@@ -58,6 +58,8 @@ body {
     min-height: 600px;
     height: auto;
     border: 1px solid #0070ba;
+    overflow: auto;
+    max-height: 700px;
 }
 
 form {
@@ -83,7 +85,6 @@ input {
 ul {
     list-style: none;
     padding: 0;
-    width: 80angular.element(document.querySelector(".NightGamer")).css("color", "green");%;
     margin: 0 auto;
 }
 

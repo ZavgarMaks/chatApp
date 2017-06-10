@@ -5,10 +5,10 @@
     <div class="greet"> Hello, {{userInfo.username}}!</div>
     <a class="logout" ng-click="logout()" href="#!/login">Log Out</a>
   </div>
-  <div class="rooms"><div class="title-rooms">Choose room:</div><button class="room" ng-click="changeRoom('general')">general</button><button class="room" ng-click="changeRoom('sport')">sport</button><button class="room" ng-click="changeRoom('news')">news</button><button class="room" ng-click="changeRoom('politics')">politics</button><button class="room" ng-click="changeRoom('it')">it</button></div>
+  <div class="rooms"><div class="title-rooms">Choose room:</div><button class="general" ng-click="changeRoom('general')">general</button><button class="sport" ng-click="changeRoom('sport')">sport</button><button class="news" ng-click="changeRoom('news')">news</button><button class="politics" ng-click="changeRoom('politics')">politics</button><button class="it" ng-click="changeRoom('it')">it</button></div>
   <div class="msg-window">
-    <ul class="messages" >
-        <li class="{{msg.author}} " ng-repeat="msg in messages"><div class="msgAuthor">{{msg.author}}</div><div class="msgText">{{msg.text}}</div><div class="msgDate">{{msg.date}}</div></li>
+    <ul class="messages" id="testID" >
+        <li class="{{msg.author}} " ng-repeat="msg in messages"><div class="msgAuthor">{{msg.author}}</div><div class="msgText">{{msg.text}}</div><span class="msgDate">{{msg.date}}</span></li>
     </ul>
   </div>
   <form action="">
